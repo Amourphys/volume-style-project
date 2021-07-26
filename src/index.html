@@ -231,7 +231,7 @@
 			<h2>Рассчитайте стоимость и получите скидку 30%</h2>
 			<div class=row>
 				<div class="col-md-4 col-offset-1">
-					<form class="form calc_form" action=# method=POST enctype=multipart/form-data data-calc="calc">
+					<form class="form calc_form" name="calc" action=# method=POST enctype=multipart/form-data data-calc="calc">
 						<h4>Загрузите свое фото</h4>
 						<div class=file_upload>
 							<button type=button>Загрузить фотографию</button>
@@ -259,7 +259,7 @@
 						</select>
 						<input type="text" class="promocode" placeholder="Введите ваш промокод">
 						<div class=calc-price>Для расчета нужно выбрать размер картины и материал картины</div>
-						<button class="button button-order">Быстрый заказ</button>
+						<button type="submit" class="button button-order">Быстрый заказ</button>
 					</form>
 				</div>
 				<div class="col-md-4 col-md-offset-2 hidden-sm hidden-xs">

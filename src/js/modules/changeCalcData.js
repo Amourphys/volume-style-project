@@ -38,7 +38,6 @@ const changeCalcData = (state) => {
           result = document.querySelectorAll('calc-price');
           
 
-         
     function bindActionToElems(event, elem, prop) {
         elem.forEach((item, i) => {
             item.addEventListener(event, () => {

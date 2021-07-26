@@ -4410,7 +4410,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_calc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/calc */ "./src/js/modules/calc.js");
 /* harmony import */ var _modules_changeCalcData__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/changeCalcData */ "./src/js/modules/changeCalcData.js");
 /* harmony import */ var _modules_filter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/filter */ "./src/js/modules/filter.js");
-/* harmony import */ var _modules_filt__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/filt */ "./src/js/modules/filt.js");
+/* harmony import */ var _modules_filtr__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/filtr */ "./src/js/modules/filtr.js");
 /* harmony import */ var _modules_pictureSize__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/pictureSize */ "./src/js/modules/pictureSize.js");
 /* harmony import */ var _modules_acordion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/acordion */ "./src/js/modules/acordion.js");
 /* harmony import */ var _modules_jsAccordion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/jsAccordion */ "./src/js/modules/jsAccordion.js");
@@ -4453,7 +4453,7 @@ window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_showMoreStyles__WEBPACK_IMPORTED_MODULE_5__["default"])('.button-styles', '#styles .row');
   Object(_modules_calc__WEBPACK_IMPORTED_MODULE_6__["default"])('#size', '#material', '#options', '.promocode', '.calc-price'); //filter();
 
-  Object(_modules_filt__WEBPACK_IMPORTED_MODULE_9__["default"])();
+  Object(_modules_filtr__WEBPACK_IMPORTED_MODULE_9__["default"])();
   Object(_modules_pictureSize__WEBPACK_IMPORTED_MODULE_10__["default"])('.sizes-block'); //accordion('.accordion-heading', '.accordion-block');
 
   Object(_modules_jsAccordion__WEBPACK_IMPORTED_MODULE_12__["default"])('.accordion-heading');
@@ -4898,83 +4898,6 @@ var drop = function drop() {
 
 /***/ }),
 
-/***/ "./src/js/modules/filt.js":
-/*!********************************!*\
-  !*** ./src/js/modules/filt.js ***!
-  \********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
-/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var filter = function filter() {
-  var wrapper = document.querySelector('.portfolio-wrapper'),
-      markAll = wrapper.querySelectorAll('.all'),
-      menu = document.querySelector('.portfolio-menu'),
-      no = document.querySelector('.portfolio-no'),
-      items = menu.querySelectorAll('li');
-
-  var typeFilter = function typeFilter(markType) {
-    markAll.forEach(function (mark) {
-      mark.style.display = "none";
-      mark.classList.remove('animated', 'fadeIn');
-    });
-    no.style.display = "none";
-    no.classList.remove('animated', 'fadeIn');
-
-    if (markType) {
-      markType.forEach(function (mark) {
-        mark.style.display = 'block';
-        mark.classList.add('animated', 'fadeIn');
-      });
-    } else {
-      no.style.display = 'block';
-      no.classList.add('animated', 'fadeIn');
-    }
-  };
-
-  var filterAll = function filterAll(one, two) {
-    var three = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-    var btn = menu.querySelector(one);
-
-    if (three) {
-      btn.addEventListener('click', function () {
-        typeFilter(wrapper.querySelectorAll(two));
-      });
-    } else {
-      btn.addEventListener('click', function () {
-        typeFilter();
-      });
-    }
-  };
-
-  filterAll('.all', '.all', true);
-  filterAll('.lovers', '.lovers', true);
-  filterAll('.chef', '.chef', true);
-  filterAll('.girl', '.girl', true);
-  filterAll('.guy', '.guy', true);
-  filterAll('.grandmother');
-  filterAll('.granddad');
-  menu.addEventListener('click', function (e) {
-    var target = e.target;
-
-    if (target && target.tagName == 'LI') {
-      items.forEach(function (btn) {
-        return btn.classList.remove('active');
-      });
-      target.classList.add('active');
-    }
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (filter);
-
-/***/ }),
-
 /***/ "./src/js/modules/filter.js":
 /*!**********************************!*\
   !*** ./src/js/modules/filter.js ***!
@@ -5062,6 +4985,83 @@ var filter = function filter() {
 
 /***/ }),
 
+/***/ "./src/js/modules/filtr.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/filtr.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var filter = function filter() {
+  var wrapper = document.querySelector('.portfolio-wrapper'),
+      markAll = wrapper.querySelectorAll('.all'),
+      menu = document.querySelector('.portfolio-menu'),
+      no = document.querySelector('.portfolio-no'),
+      items = menu.querySelectorAll('li');
+
+  var typeFilter = function typeFilter(markType) {
+    markAll.forEach(function (mark) {
+      mark.style.display = "none";
+      mark.classList.remove('animated', 'fadeIn');
+    });
+    no.style.display = "none";
+    no.classList.remove('animated', 'fadeIn');
+
+    if (markType) {
+      markType.forEach(function (mark) {
+        mark.style.display = 'block';
+        mark.classList.add('animated', 'fadeIn');
+      });
+    } else {
+      no.style.display = 'block';
+      no.classList.add('animated', 'fadeIn');
+    }
+  };
+
+  var filterAll = function filterAll(one, two) {
+    var three = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    var btn = menu.querySelector(one);
+
+    if (three) {
+      btn.addEventListener('click', function () {
+        typeFilter(wrapper.querySelectorAll(two));
+      });
+    } else {
+      btn.addEventListener('click', function () {
+        typeFilter();
+      });
+    }
+  };
+
+  filterAll('.all', '.all', true);
+  filterAll('.lovers', '.lovers', true);
+  filterAll('.chef', '.chef', true);
+  filterAll('.girl', '.girl', true);
+  filterAll('.guy', '.guy', true);
+  filterAll('.grandmother');
+  filterAll('.granddad');
+  menu.addEventListener('click', function (e) {
+    var target = e.target;
+
+    if (target && target.tagName == 'LI') {
+      items.forEach(function (btn) {
+        return btn.classList.remove('active');
+      });
+      target.classList.add('active');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (filter);
+
+/***/ }),
+
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -5092,7 +5092,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var forms = function forms() {
+var forms = function forms(state) {
   var form = document.querySelectorAll('form'),
       inputs = document.querySelectorAll('input'),
       upload = document.querySelectorAll('[name="upload"]');
@@ -5147,6 +5147,13 @@ var forms = function forms() {
       textMessage.textContent = message.loading;
       statusMessage.appendChild(textMessage);
       var formData = new FormData(item);
+
+      if (item.getAttribute('data-calc') === 'calc') {
+        for (var key in state) {
+          formData.append(key, state[key]);
+        }
+      }
+
       var api;
       item.closest('.popup-design') || item.classList.contains('calc_form') ? api = path.designer : api = path.question;
       console.log(api);
